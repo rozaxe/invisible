@@ -1,0 +1,339 @@
+// Function
+transition-property(n)
+	-moz-transition-property arguments
+	-webkit-transition-property arguments
+	-o-transition-property arguments
+	transition-property arguments
+
+transition-duration(n)
+	-moz-transition-duration n
+	-webkit-transition-duration n
+	-o-transition-duration n
+	transition-duration n
+
+fradial-gradient()
+	background -moz-radial-gradient(arguments)
+	background -webkit-radial-gradient(arguments)
+	background -o-radial-gradient(arguments)
+	background radial-gradient(arguments)
+
+box-sizing(n)
+	-moz-box-sizing n
+	-webkit-box-sizing n
+	-o-box-sizing n
+	box-sizing n
+
+html
+body
+	width 100%
+	height 100%
+
+	min-width 750px
+	min-height 600px
+
+	padding 0
+	margin 0
+	position fixed // Prevent scroll
+
+	> div
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		transition-property top, left
+		transition-duration 1s
+
+#load
+	font-family Consolas, sans-serif
+	font-size 36px
+	background-color #0C0E10
+	z-index 40
+	text-align center
+	cursor wait
+
+	> div
+		color white
+		display inline-block
+		vertical-align middle
+
+	#reset
+		cursor pointer
+		font-size 12px
+		position absolute
+		bottom 20px
+		right 20px
+
+
+#help
+	background-color rgba(0, 0, 0, 0.3)
+	z-index 35
+	text-align center
+
+	img
+		position absolute
+		top 5%
+		right 5%
+		cursor pointer
+
+	> div
+		font-family Consolas, sans-serif
+		font-size 36px
+		cursor default
+		color white
+		display inline-block
+		vertical-align middle
+		max-width 700px
+
+.hidden
+	opacity 0
+	visibility hidden
+
+#t1
+#t2
+#t3
+#t4
+	width auto
+	height auto
+	background-color rgba(0, 0, 0, 0.5)
+	border-radius 16px
+	z-index 15
+	padding 1em
+	font-family Consolas, sans-serif
+	color white
+	cursor default
+	transition-property(opacity)
+	transition-duration(0.5s)
+
+	.hidden
+		opacity 0
+		visibility hidden
+
+#t1
+	left 15%
+	top 20%
+
+#t2
+	left 10%
+	top 70%
+
+#t3
+	z-index 32
+	left 10%
+	top 40%
+
+#t4
+	top auto
+	bottom 60px
+	left 10%
+	z-index 32
+
+#board
+	z-index 30
+	left 100%
+	background-color #C8C8C8
+
+	img
+		position absolute
+		top 5%
+		cursor pointer
+
+	#clue
+		right 5%
+
+	#back
+		left 5%
+
+	canvas
+		float left
+		//background -moz-radial-gradient(center 0deg, ellipse farthest-corner, #C9DE55 0%, #7E9101 100%) // Multi
+		fradial-gradient 50% 50%, ellipse farthest-corner, #C9DE55 0%, #7E9101 100%
+		cursor none
+
+	#input
+		float left
+		width 100%
+		height 6%
+		text-align center
+
+		form
+			box-sizing(border-box)
+			display inline-block
+			height 100%
+			width 30%
+			padding 0.5%
+
+			input
+				height 100%
+				border none
+				padding 0
+
+			input[type=text]
+				text-align center
+				width 80%
+				float left
+				line-height 80%
+				border-top-left-radius 0.5em
+				border-bottom-left-radius 0.5em
+
+			input[type=submit]
+				width 20%
+				border-top-right-radius 0.5em
+				border-bottom-right-radius 0.5em
+
+			.ok
+				background:url("img/ok.png") 50% 0 no-repeat;
+				background-color #008CB5
+
+			.wrong
+				background:url("img/error.png") 50% 0 no-repeat;
+				background-color #C00303
+
+#bonus
+	background-color #C00303
+	z-index 20
+	top 90%
+	height 80%
+	text-align center
+
+	> img
+		position absolute
+		top 0
+		left 0
+		opacity 0
+		transition-property(opacity)
+		transition-duration(0.5s)
+
+	> div // stamps
+		display inline-block
+		vertical-align middle
+		text-align center // CSSeption ! xD
+		margin-top 15%
+		max-width 100%
+		overflow-y auto
+
+
+		div
+			position relative
+			cursor pointer
+			display inline-block
+			vertical-align middle
+
+			img
+				padding 5%
+
+			.lock
+				position absolute
+				top 20%
+				left 20%
+
+			.catch
+				position absolute
+				top 0
+				left 0
+				width 100%
+				height 100%
+
+		#desc
+			cursor default
+			font-family Consolas, sans-serif
+			display block
+			height 40px
+			color white
+
+			img
+				padding 0
+				margin-right 5px
+				display inline
+
+	&:hover
+		top 20%
+
+#menu
+	background-color white
+	z-index 10
+	height 85%
+	position relative
+
+	#tiles
+		box-sizing(border-box)
+		max-height 100%
+		overflow auto
+		padding 2%
+		padding-right 0
+
+	footer
+		height 5%
+		width 100%
+		position absolute
+		bottom -5%
+		text-align right
+
+		#audio
+			position absolute
+			cursor pointer
+			top 0
+			left 1%
+
+			.hidden
+				display none
+
+		div
+			font-family Consolas, sans-serif
+			font-size 12px
+			padding-right 2%
+			color black
+			display inline-block
+			vertical-align middle
+
+			a
+			a:link
+				color black
+
+	.tile
+		position relative
+		float left
+		margin-right 2%
+		margin-bottom 2%
+		width 8%
+		min-width 70px
+		display inline-block
+		cursor pointer
+
+		.dummy
+			margin-top 100%
+
+		.inner
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			z-index 10
+
+			.category
+				position absolute
+				top 3px
+				left 3px
+
+			.help
+				position absolute
+				top 3px
+				right 3px
+				color white
+
+			.solve
+				position absolute
+				bottom 0
+				right 0
+
+		.catch
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			z-index 20
+
+.lure
+	height 100%
