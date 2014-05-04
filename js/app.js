@@ -447,7 +447,7 @@ function validName(event) {
 }
 
 function format(str) {
-	return str.toLowerCase().replace(/\s/g, '')
+	return str.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
 }
 
 function backToMenu() {
@@ -683,6 +683,9 @@ function showClue() {
 	DOM.clue.style.display = 'none'
 	DOM.back.style.display = 'none'
 	DOM.help.className = 'show'
+
+	// Give focus to input
+	DOM.answer.focus()
 }
 
 function hiddenClue() {
@@ -766,6 +769,7 @@ function prepare_dom() {
 	DOM.submit.addEventListener('click', validName, false)
 	DOM.clue.addEventListener('click', showClue, false)
 	DOM.cancel.addEventListener('click', hiddenClue, false)
+	DOM.help.addEventListener('click', hiddenClue, false)
 	DOM.answer.addEventListener('keydown', reset_answer, false)
 	DOM.reset.addEventListener('click', reset_save, false)
 	DOM.player.addEventListener('click', music_setting, false)
