@@ -1,3 +1,5 @@
+(function() {
+
 /*
  * Invisible
  * ---------
@@ -465,6 +467,7 @@ function backToMenu() {
 
 	new_background()
 
+	hiddenClue()
 	hideBoard()
 }
 
@@ -792,3 +795,5 @@ window.onload = function() {
 	++K.nbLoaded
 	start()
 }
+
+})()
