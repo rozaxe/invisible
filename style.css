@@ -1,0 +1,343 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-width: 750px;
+  min-height: 600px;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+}
+html > div,
+body > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -moz-transition-property: top, left;
+  -webkit-transition-property: top, left;
+  -o-transition-property: top, left;
+  transition-property: top, left;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+#load {
+  font-family: Consolas, sans-serif;
+  font-size: 36px;
+  background-color: #0c0e10;
+  z-index: 40;
+  text-align: center;
+  cursor: wait;
+}
+#load > div {
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+#load #reset {
+  cursor: pointer;
+  font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+#help {
+  height: 94%;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 35;
+  text-align: center;
+}
+#help img {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+#help > div {
+  font-family: Consolas, sans-serif;
+  font-size: 36px;
+  cursor: default;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 700px;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+#t1,
+#t2,
+#t3,
+#t4 {
+  width: auto;
+  height: auto;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 16px;
+  z-index: 15;
+  padding: 1em;
+  font-family: Consolas, sans-serif;
+  color: #fff;
+  cursor: default;
+  -moz-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+#t1 .hidden,
+#t2 .hidden,
+#t3 .hidden,
+#t4 .hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+#t1 {
+  left: 15%;
+  top: 20%;
+}
+#t2 {
+  left: 10%;
+  top: 70%;
+}
+#t3 {
+  z-index: 32;
+  left: 10%;
+  top: 40%;
+}
+#t4 {
+  top: auto;
+  bottom: 60px;
+  left: 10%;
+  z-index: 32;
+}
+#board {
+  z-index: 30;
+  left: 100%;
+  background-color: #c8c8c8;
+}
+#board img {
+  position: absolute;
+  top: 5%;
+  cursor: pointer;
+}
+#board #clue {
+  right: 5%;
+}
+#board #back {
+  left: 5%;
+}
+#board canvas {
+  float: left;
+  background: -moz-radial-gradient(50% 50%, ellipse farthest-corner, #c9de55 0%, #7e9101 100%);
+  background: -webkit-radial-gradient(50% 50%, ellipse farthest-corner, #c9de55 0%, #7e9101 100%);
+  background: -o-radial-gradient(50% 50%, ellipse farthest-corner, #c9de55 0%, #7e9101 100%);
+  background: radial-gradient(50% 50%, ellipse farthest-corner, #c9de55 0%, #7e9101 100%);
+  cursor: none;
+}
+#board #input {
+  float: left;
+  width: 100%;
+  height: 6%;
+  text-align: center;
+}
+#board #input form {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  width: 30%;
+  padding: 0.5%;
+}
+#board #input form input {
+  height: 100%;
+  border: none;
+  padding: 0;
+}
+#board #input form input[type=text] {
+  text-align: center;
+  width: 80%;
+  float: left;
+  line-height: 80%;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+#board #input form input[type=submit] {
+  cursor: pointer;
+  width: 20%;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+#board #input form .ok {
+  background: url("img/ok.png") 50% 0 no-repeat;
+  background-color: #008cb5;
+}
+#board #input form .wrong {
+  background: url("img/error.png") 50% 0 no-repeat;
+  background-color: #c00303;
+}
+#bonus {
+  background-color: #c00303;
+  z-index: 20;
+  top: 90%;
+  height: 80%;
+  text-align: center;
+}
+#bonus > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -moz-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+#bonus > div {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 15%;
+  max-width: 100%;
+  overflow-y: auto;
+}
+#bonus > div div {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+#bonus > div div img {
+  padding: 5%;
+}
+#bonus > div div .lock {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+#bonus > div div .catch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#bonus > div #desc {
+  cursor: default;
+  font-family: Consolas, sans-serif;
+  display: block;
+  height: 40px;
+  color: #fff;
+}
+#bonus > div #desc img {
+  padding: 0;
+  margin-right: 5px;
+  display: inline;
+}
+#bonus:hover {
+  top: 20%;
+}
+#menu {
+  background-color: #fff;
+  z-index: 10;
+  height: 85%;
+  position: relative;
+}
+#menu #tiles {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow: auto;
+  padding: 2%;
+  padding-right: 0;
+}
+#menu footer {
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  bottom: -5%;
+  text-align: right;
+}
+#menu footer #audio {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 1%;
+}
+#menu footer #audio .hidden {
+  display: none;
+}
+#menu footer div {
+  font-family: Consolas, sans-serif;
+  font-size: 12px;
+  padding-right: 2%;
+  color: #000;
+  display: inline-block;
+  vertical-align: middle;
+}
+#menu footer div a,
+#menu footer div a:link {
+  color: #000;
+}
+#menu .tile {
+  position: relative;
+  float: left;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  width: 8%;
+  min-width: 70px;
+  display: inline-block;
+  cursor: pointer;
+}
+#menu .tile .dummy {
+  margin-top: 100%;
+}
+#menu .tile .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+#menu .tile .inner .category {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+#menu .tile .inner .help {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #fff;
+}
+#menu .tile .inner .solve {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#menu .tile .catch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.lure {
+  height: 100%;
+}
