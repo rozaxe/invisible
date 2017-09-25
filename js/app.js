@@ -360,28 +360,18 @@ Data.images = {}
 
 // Save data to local Session
 function save_data() {
-	sessionStorage.setItem('pieces', JSON.stringify(Data.pieces))
-	sessionStorage.setItem('stamps', JSON.stringify(Data.stamps))
-	sessionStorage.setItem('categories', JSON.stringify(Data.categories))
-	sessionStorage.setItem('tuto', JSON.stringify(Data.tuto))
+	//sessionStorage.setItem('pieces', JSON.stringify(Data.pieces))
+	//sessionStorage.setItem('stamps', JSON.stringify(Data.stamps))
+	//sessionStorage.setItem('categories', JSON.stringify(Data.categories))
+	//sessionStorage.setItem('tuto', JSON.stringify(Data.tuto))
 }
 
 
 // Load data from local Session or init data
 function load_data() {
-	if (sessionStorage.getItem('pieces')) {
-		try {
-			Data.pieces     = JSON.parse(sessionStorage.getItem('pieces'))
-			Data.stamps     = JSON.parse(sessionStorage.getItem('stamps'))
-			Data.categories = JSON.parse(sessionStorage.getItem('categories'))
-			Data.tuto       = JSON.parse(sessionStorage.getItem('tuto'))
-		} catch (e) {}
-	} else {
-		// Create Categories
-		for (var x in Data.pieces)
-			if (Data.pieces[x].category)
-				Data.categories[Data.pieces[x].category].content.push(x)
-	}
+	for (var x in Data.pieces)
+		if (Data.pieces[x].category)
+			Data.categories[Data.pieces[x].category].content.push(x)
 }
 
 // Erase data from local Session
