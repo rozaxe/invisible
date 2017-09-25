@@ -375,10 +375,7 @@ function load_data() {
 }
 
 // Erase data from local Session
-function reset_save() {
-	sessionStorage.clear()
-	window.location.reload()
-}
+function reset_save() {}
 
 /*
  * Game Functions
@@ -761,7 +758,7 @@ function prepare_dom() {
 	DOM.cancel.addEventListener('click', hiddenClue, false)
 	DOM.help.addEventListener('click', hiddenClue, false)
 	DOM.answer.addEventListener('keydown', reset_answer, false)
-	DOM.reset.addEventListener('click', reset_save, false)
+	//DOM.reset.addEventListener('click', reset_save, false)
 	DOM.player.addEventListener('click', music_setting, false)
 
 	new_background()
